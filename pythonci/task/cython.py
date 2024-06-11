@@ -2,7 +2,7 @@ import os.path
 from pythonci.task import BaseTask
 
 
-TARBALL = 'https://files.pythonhosted.org/packages/7f/a2/fd5ced5dd33597ef291861bfadd46820de417b41bcb6ca2fa0b5f6fa8152/Cython-3.0.0.tar.gz'
+TARBALL = 'https://files.pythonhosted.org/packages/d5/f7/2fdd9205a2eedee7d9b0abbf15944a1151eb943001dbdc5233b1d1cfc34e/Cython-3.0.10.tar.gz'
 
 
 class Task(BaseTask):
@@ -15,6 +15,5 @@ class Task(BaseTask):
         self.app.run_python(["setup.py", "install"], cwd=self.dirname)
 
     def _run_tests(self):
-        print("DIRNAME", self.dirname)
         self.app.run_python(['runtests.py', '-vv', '--no-pyregr'],
                             cwd=self.dirname)
